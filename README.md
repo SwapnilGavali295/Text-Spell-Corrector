@@ -35,3 +35,4 @@ Note: You can customize the dictionary and frequency file names by modifying the
 - Corrected Paragraph: The program will process the input paragraph and display the corrected version. The misspelled words will be replaced with the nearest correct words based on the edit distance and dictionary lookup. The corrected paragraph will be printed in the terminal.
 - Execution Time: Upon completion, the program will display the execution time in milliseconds. This provides an indication of the spell correction performance.
 - Follow these usage instructions to utilize the spell corrector effectively and ensure accurate correction of spelling mistakes in your paragraphs or texts.
+![Screenshot 2023-06-21 183233](https://github.com/SwapnilGavali295/Text-Spell-Corrector/assets/137003175/41b844dc-a85a-4daa-a1db-68f4eef21242)
