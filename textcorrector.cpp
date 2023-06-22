@@ -9,34 +9,33 @@ unordered_map<string, long long int> wordList;
 unordered_map<string, string> corrections;
 
 int editDistance(string s1, string s2) {
-    // Bottom-Up Dynamic Programming method for calculating edit distances between two strings
-    int n = s1.length(), m = s2.length();
+    int n = s1.length();
+    int m = s2.length();
+
     vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
 
-    // Adding dummy character so that it is possible to use 1-based indexing
-    s1 = '.' + s1;
-    s2 = '.' + s2;
+    // Initialize the first row and first column
+    for (int i = 0; i <= n; i++) {
+        dp[i][0] = i;
+    }
+    for (int j = 0; j <= m; j++) {
+        dp[0][j] = j;
+    }
 
-    for (int i = n; i > 0; i--) {
-        for (int j = m; j > 0; j--) {
-            if (i == n || j == m) {
-                if (s1[i] == s2[j]) {
-                    dp[i][j] = max(n - i, m - j);
-                } else {
-                    dp[i][j] = 1 + max(n - i, m - j);
-                }
+    // Fill in the remaining cells
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (s1[i - 1] == s2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
             } else {
-                if (s1[i] != s2[j]) {
-                    dp[i][j] = 1 + min({ dp[i][j + 1], dp[i + 1][j + 1], dp[i + 1][j] });
-                } else {
-                    dp[i][j] = dp[i + 1][j + 1];
-                }
+                dp[i][j] = 1 + min({ dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1] });
             }
         }
     }
 
-    return dp[1][1];
+    return dp[n][m];
 }
+
 
 string spellCorrect(string& word) {
     // If word exists in the dictionary, return the word
