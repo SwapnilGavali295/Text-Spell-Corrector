@@ -3,7 +3,7 @@
 
 The Spell Corrector using Edit Distance and Dictionary is a program that aims to automatically correct misspelled words in a given paragraph. The program utilizes the concept of edit distance, which measures the number of operations required to transform one word into another, and a dictionary containing a list of correctly spelled words.
 
-By employing a bottom-up dynamic programming approach, the program calculates the edit distance between the misspelled word and all words in the dictionary. It then selects the word with the lowest edit distance as the most probable correct word. In cases where multiple words have the same edit distance, the program chooses the most frequently used word in English.
+By employing the Wagner-Fischer algorithm, the program efficiently calculates the edit distance between the misspelled word and all words in the dictionary. It then selects the word with the lowest edit distance as the most probable correct word. In cases where multiple words have the same edit distance, the program chooses the most frequently used word in English. This algorithm guarantees an optimal solution by leveraging dynamic programming techniques, ensuring accurate and reliable suggestions for correcting misspelled words.
 
 The program takes a paragraph as input and processes it word by word. It handles punctuation marks and capitalization, ensuring that corrected words are properly capitalized when necessary. The corrected paragraph is then displayed as output, indicating the corrected words.
 
@@ -16,8 +16,8 @@ With its modular design and customizable dictionary, the spell corrector can be 
 
 ## Features
 
-- Edit Distance Calculation: The program implements a bottom-up dynamic programming approach to calculate the edit distance between misspelled words and dictionary words. This enables efficient and accurate identification of the most probable correct word.
-- Dictionary-based Correction: The spell corrector utilizes a dictionary containing a list of correctly spelled words. It compares the edit distances of the misspelled word with words in the dictionary to identify the nearest correct word.
+- Edit Distance Calculation: The program implements Wagner-Fischer algorithm to calculate the edit distance between misspelled words and dictionary words. This enables efficient and accurate identification of the most probable correct word.
+- Dictionary-based Correction: The spell corrector utilizes a dictionary containing a list of correctly spelled words (about 194,000 words). It compares the edit distances of the misspelled word with words in the dictionary to identify the nearest correct word.
 - Frequency-based Word Selection: In cases where multiple words have the same edit distance, the program selects the most frequently used word in English as the most probable correction. This improves the accuracy of the correction process.
 - Handling of Punctuation and Capitalization: The program handles punctuation marks and capitalization within the input paragraph. It ensures that corrected words are properly capitalized when necessary and maintains the original structure of the paragraph.
 - Customizable Dictionary: The spell corrector allows for the customization and expansion of the dictionary. This enables users to add new words or domain-specific terms to improve the correction accuracy for specific applications or industries.
